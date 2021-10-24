@@ -1,0 +1,26 @@
+<h2>Show todo</h2>
+<hr>
+<div class="row">
+    <div class="col mb-3">
+        <form action="" autocomplete="off" (ngSubmit) = "search()">
+            <input 
+            type="text" 
+            name="termino" 
+            class="form-control" 
+            [(ngModel)] = "termino"
+            placeholder="Search todo por ID...">
+        </form>
+    </div>
+    <hr>
+</div>
+<div
+*ngIf = "ThereIsAerror" 
+class="alert alert-danger">
+Search term was not found {{ termino }}:c. Try again!
+</div>
+
+<div class="row">
+    <div class="col">
+        <app-table *ngIf = "!ThereIsAerror" [Todo] = "todo"></app-table>
+    </div>
+</div>
